@@ -6,7 +6,13 @@ import com.example.demo.service.StudentService;
 public class StudentServiceimpl implements Student{
     public Student saveStudent(Student student)
     {
-        private final
+        private final StudentRepository studentrepository;
+        public StudentServiceimpl(StudentRepository studentrepository){
+            this.StudentRepository=studentrepository;
+        }
+    }
+    public Student saveStudent(Student student){
+        return studentrepository
     }
 
 }
