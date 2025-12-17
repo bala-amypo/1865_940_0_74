@@ -1,4 +1,4 @@
-package com.example.nxspeed.entity;
+package com.example.demo.entity;
 
 import java.time.LocalDate;
 
@@ -33,13 +33,10 @@ public class Student {
     public void setEmail(String email) {
         this.email = email;
     }
-   
-    
     public Student(int id, String name, String email, LocalDate dob, float cgpa) {
         this.id = id;
         this.name = name;
         this.email = email;
-        
     }
     public Student() {
     } 
