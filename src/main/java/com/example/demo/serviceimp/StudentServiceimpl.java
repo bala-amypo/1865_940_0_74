@@ -11,8 +11,11 @@ public class StudentServiceimpl implements Student{
             this.StudentRepository=studentrepository;
         }
     }
+    @Autowired
+    StudentRepository studentrepository;
+    
     public Student saveStudent(Student student){
-        return studentrepository
+        return studentrepository.save(student);
     }
 
 }
