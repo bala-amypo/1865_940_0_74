@@ -1,2 +1,5 @@
 package com.example.demo.service;
-public interface 
+
+public interface StudentService{
+
+}
