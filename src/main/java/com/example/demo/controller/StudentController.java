@@ -17,7 +17,4 @@ public class StudentController {
     public Student postdata(@RequestBody Student student){
         return studentService.saveStudent(student);
     }
-    
-    
-
 }
