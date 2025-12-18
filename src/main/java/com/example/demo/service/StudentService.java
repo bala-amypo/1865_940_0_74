@@ -1,12 +1,29 @@
-package com.example.demo.service;
 
-import org.springframework.stereotype.Service;
+package com.example.demo.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.entity.Student;
+import com.example.demo.service.StudentService;
 
-@Service
-public interface StudentService {
-    
-    Student saveStudent(Student student);// Creating object for saving student details and class
-  
+import jakarta.validation.Valid;
+
+@RestController
+public class StudentController {
+
+    @Autowired
+    private StudentService studentService;
+
+    @PostMapping("/postdata")
+    public ResponseEntity<Student> postdata(
+            @Valid @RequestBody Student student) {
+
+        Student savedStudent = studentService.saveStudent(student);
+        return new ResponseEntity<>(savedStudent, HttpStatus.CREATED);
+    }
 }
