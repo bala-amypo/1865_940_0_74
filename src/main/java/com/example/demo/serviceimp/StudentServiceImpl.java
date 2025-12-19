@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.example.demo.entity.Student;
 import com.example.demo.repository.StudentRepository;
 import com.example.demo.service.StudentService;
-import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.exception.ResourceNotFoundHandler;
 
 @Service
 public class StudentServiceImpl implements StudentService {
@@ -19,14 +19,14 @@ public class StudentServiceImpl implements StudentService {
     
     public Student getStudentById(Long id){
         return studentRepository.findById(id)
-        .orElseThrow(()-> new ResourceNotFoundException("Student not found"));
+        .orElseThrow(()-> new ResourceNotFoundHandler("Student not found"));
     }
     public Student updatedata(Long id,Student student){
         Student exists=getStudentById(id);
         exists.setName(student.getName());
         exists.setEmail(student.getEmail());
         return studentRepository.save(exists);
-        // .orElseThrow(()-> new ResourceNotFoundException("Student not found"));
+        // .orElseThrow(()-> new ResourceNotFoundHandler("Student not found"));
     }
 
     public Student deletdata(Long id){
