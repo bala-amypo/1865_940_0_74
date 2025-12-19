@@ -28,6 +28,6 @@ return new ResponseEntity<>(studentService.saveStudent(student),HttpStatus.CREAT
 public Student getdata(@PathVariable Long id){
 return studentService.getStudentById(id);
 }
-
+@PutMapping("")
 
 }
