@@ -1,29 +1,11 @@
-
-package com.example.demo.controller;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+package com.example.demo.service;
 
 import com.example.demo.entity.Student;
-import com.example.demo.service.StudentService;
 
-import jakarta.validation.Valid;
+public interface StudentService {
 
-@RestController
-public class StudentController {
-
-    @Autowired
-    private StudentService studentService;
-
-    @PostMapping("/postdata")
-    public ResponseEntity<Student> postdata(
-            @Valid @RequestBody Student student) {
-
-        Student savedStudent = studentService.saveStudent(student);
-        return new ResponseEntity<>(savedStudent, HttpStatus.CREATED);
-    }
+    Student saveStudent(Student student);
+    Student getStudentById(Long id);
+    Student updatedata(Long id,Student student);
+    Student deletdata(Long id);
 }
